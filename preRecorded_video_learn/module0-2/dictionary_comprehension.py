@@ -1,0 +1,11 @@
+# nums = list(range(0,11)) # 10 ta value pabo amra
+
+# result = {i:"Even" if i%2 == 0 else "Odd"  for i in nums }
+# print(result)
+
+
+nums = list(range(0,11))
+result = {i:"Even" if i%2 == 0 else "Odd" for i in nums}
+print(result)
+
+

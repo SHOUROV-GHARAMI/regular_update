@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Fact Fetcher</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 2em;
+            background: #f0f0f0;
+            text-align: center;
+        }
+
+        #fact {
+            margin-top: 1em;
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        button {
+            padding: 0.5em 1em;
+            font-size: 1em;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Random Cat Fact</h1>
+    <button onclick="getCatFact()">Get a Cat Fact</button>
+    <div id="fact"></div>
+
+    <script>
+        function getCatFact() {
+            axios.get('https://catfact.ninja/fact')
+                .then(response => {
+                    document.getElementById('fact').textContent = response.data.fact;
+                })
+                .catch(error => {
+                    document.getElementById('fact').textContent = "Failed to fetch cat fact.";
+                    console.error(error);
+                });
+        }
+    </script>
+
+</body>
+
+</html>
