@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Part 02</title>
+  </head>
+
+  <body>
+    <h1>Login Form</h1>
+    <!-- get methon for open unsencitive informatiom
+    <form action="" method="get">
+    post method for serect sencetive informatiom -->
+    <form action="" method="post">
+      <!-- <form action="" method="get"> -->
+      <!-- <input type="date" />
+      <input type="image" />
+      <input type="radio" />
+      <input type="text" />
+      <input type="password" />
+      <input type="datetime-local" /> -->
+      <!-- Username: -->
+      <label for="username">Username:</label>
+      <input
+        type="text"
+        id="username"
+        placeholder="Enter your username here"
+        minlength="8"
+        maxlength="20"
+      />
+      <!-- <br> it's a break tag -->
+      <br />
+      <br />
+
+      <label for="password">Password:</label>
+      <input
+        type="password"
+        id="password"
+        placeholder="Enter your password here"
+        minlength="8"
+        maxlength="20"
+      />
+      <br /><br />
+      <!-- <lebel for="button"></lebel> -->
+      <input type="submit" name="submit" value="submit" />
+      <br /><br />
+      <label for="countryselect">Choose country:</label>
+      <select id="countryselect">
+        <option value="">Bangladesh</option>
+        <option value="">USA</option>
+        <option value="">UK</option>
+        <option value="">Combodia</option>
+        <option value="">Russia</option>
+      </select>
+
+      <br /><br />
+      <p>Choose Gender:</p>
+
+      <label for="male">Male</label>
+      <input type="radio" id="male" name="gender" />
+
+      <label for="female">Female</label>
+      <input type="radio" id="female" name="gender" />
+
+      <label for="other">Other</label>
+      <input type="radio" id="other" name="gender" />
+      <br /><br />
+      <p>Hobbies:</p>
+      <input type="checkbox" id="reading" name="Hobbies" value="reading" />
+      <label for="reading">reading</label><br />
+      <input type="checkbox" id="gaming" name="Hobbies" value="gaming" />
+      <label for="gaming">Gaming</label><br />
+      <input type="checkbox" id="cooking" name="Hobbies" value="cooking" />
+      <label for="cooking">Cooking</label><br />
+      <input type="checkbox" id="football" name="Hobbies" value="football" />
+      <label for="football">Football</label><br />
+    </form>
+
+    <form method="get">
+      <h1>Login</h1>
+      <br /><br />
+      Username:
+      <input type="text" name="user" required />
+      Password:
+      <input type="password" name="password" required />
+      <br />
+      <input type="submit" value="Login" />
+    </form>
+  </body>
+</html>
