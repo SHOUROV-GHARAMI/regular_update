@@ -1,4 +1,3 @@
-
 def counting_characters(filename):
     with open(filename, "r", encoding="utf-8") as f:
         text = f.read()
@@ -12,9 +11,9 @@ def counting_characters(filename):
             else:
                 counts[lower_ch] += 1
 
-
+    print(counts)
     for ch in sorted(counts.keys()):
         print(f"'{ch}' appears {counts[ch]} times")
 
 filename = "input.txt" 
-counting_characters(input.txt)
+counting_characters(filename)
