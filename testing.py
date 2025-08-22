@@ -71,3 +71,11 @@
 # print(math.cos(100))
 
 
+# a = 5
+# b = 10
+# a,b = b,a
+# print(f"after swaping a = {a} and b = {b}")
+
+
+
+
