@@ -26,12 +26,13 @@
 #     roll = ""
 #     gpa = ""
     
-#     def set_value(self,name,roll,gpa):         #here self,name,roll,gpa is an arguments
+#     def set_value(self,name,roll,gpa):         #here (self,name,roll,gpa) is Parameter #👉 Parameters = placeholders (name, age)
+#                                                                                        #👉 Arguments = actual values ("Alice", 25)
 #         self.name = name
 #         self.roll = roll
 #         self.gpa = gpa
 
-#     def display(self):                    #here self is an argument 
+#     def display(self):                    #here self is a parameter 
 #         print(f"Name = {self.name}, Roll = {self.roll} , GPA = {self.gpa}")
 
 # student1 = Student()
@@ -75,11 +76,18 @@
 
 #contructor is a special type of method(function) where we don't have to call extra to set values
 
+
 # class Student:
 #     roll = ""
 #     gpa = ""
-
-#     def __init__(self,roll,gpa):                 #here __init__ is a constructor for value initialization of rahim and karim student
+'''
+            # #🔹 Constructor in Python (__init__)
+            A constructor in Python is a special method used to initialize objects of a class.
+            It is automatically called when an object of the class is created.
+            In Python, the constructor method is always named:      
+            here __init__ is a constructor for value initialization of rahim and karim student.
+'''
+#     def __init__(self,roll,gpa):        
 #         self.roll = roll
 #         self.gpa = gpa
 
@@ -96,20 +104,21 @@
 
 #practice
 
-class Triangle:
-    # base = "" / not need here 
-    # hight = "" / not need here 
+# class Triangle:
+#     # base = "" / not need here 
+#     # hight = "" / not need here 
 
-    def __init__(self,base,hight):
-        self.base = base
-        self.hight = hight
+#     def __init__(self,base,hight):
+#         self.base = base
+#         self.hight = hight
 
-    def calculate_area(self):
-        area = 0.5 * self.base *self.hight
-        print(f"Area = {area}")
+#     def calculate_area(self):
+#         area = 0.5 * self.base *self.hight
+#         print(f"Area = {area}")
 
-t1 = Triangle(10,20)
-t1.calculate_area()
+# t1 = Triangle(10,20)
+# t1.calculate_area()
 
-t2 = Triangle(20,30)
-t2.calculate_area()
+# t2 = Triangle(20,30)
+# t2.calculate_area()
+

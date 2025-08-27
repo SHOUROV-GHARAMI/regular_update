@@ -1,1 +1,2 @@
-n = int(input("Enter array size: "))
+def area(self):
+    #     print("Hello area")
