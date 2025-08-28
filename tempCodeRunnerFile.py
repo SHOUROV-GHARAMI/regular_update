@@ -1,2 +1,1 @@
-def area(self):
-    #     print("Hello area")
+@abstractmethod  
