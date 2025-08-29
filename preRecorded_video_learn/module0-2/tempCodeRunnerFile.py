@@ -1,1 +1,1 @@
-print(dict(c))
+123
