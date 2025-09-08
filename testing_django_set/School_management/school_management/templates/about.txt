@@ -1,0 +1,2 @@
+It's a global templates folder
+This is about page
