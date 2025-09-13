@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to the Student profile from studentapp\template\student\index.html .</h1>
+    
+    <h2> Name : {{ name }} </h2>
+    <h2>  Age : {{age}} </h2>
+
+    {% if age > 20 %}
+    <h2>You are in age , you can get Driving License. </h2>
+    {% else %}
+    <h2> You are under age , So you can not get Driving License. </h2>
+    {% endif %}
+
+
+    
+</body>
+</html>
+
+{% comment %} For variable access we use {{ }} {% endcomment %}
+{% comment %} For condition,loop we use {%  %}  {% endcomment %}

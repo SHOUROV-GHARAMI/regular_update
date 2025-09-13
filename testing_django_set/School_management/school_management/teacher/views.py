@@ -7,3 +7,6 @@ def profile(request):
 def home(request):
     return HttpResponse("I am in teacher home page")
 
+def profile(request):
+    return render(request, 'teacher/index.html')
+
