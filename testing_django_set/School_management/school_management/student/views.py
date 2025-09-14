@@ -12,15 +12,26 @@ def profile(request):
         # "age" : 20
         "age": 30,
     }
-    marks = {
+    marks = [
         {"id": 1, "subject": "Math", "marks": 80},
-        {"id": 2, "subject": "English", "marks": 90},
+        {"id": 2, "subject": "English", "marks": 65},
         {"id": 3, "subject": "Science", "marks": 85},
-        {"id": 3, "subject": "History", "marks": 75},
-        {"id": 4, "subject": "Bio", "marks": 65},
-    }
-    # return render(request, 'student/index.html', user_data, {"marks" : marks})
-    return render(request, "student/index.html", {"marks": marks})
+        {"id": 4, "subject": "History", "marks": 75},
+        {"id": 5, "subject": "Bio", "marks": 85},
+        {"id": 6, "subject": "Social_Science", "marks": 35},
+        {"id": 7, "subject": "Math", "marks": 59},
+    ]
+
+    return render(
+        request,
+        "student/index.html",
+        {
+            "marks": marks,
+            "age": 20,
+            "Name": "Md Abdullah All Baki",
+            "lst": ["apple", "orange", "banana"],
+        },
+    )
 
 
 def home(request):

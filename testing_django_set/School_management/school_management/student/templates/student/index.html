@@ -1,26 +1,51 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <h1>Welcome to the Student profile from studentapp\template\student\index.html .</h1>
-    
-    <h2> Name : {{ name }} </h2>
-    <h2>  Age : {{age}} </h2>
+    <link rel="stylesheet" href="{% static 'student/css/index.css' %}" />
+  </head>
+
+  <body>
+    <h1>
+      Welcome to the Student profile.
+    </h1>
+    <img src="{% static 'student/images/image.png'%}" alt="Image not found">
+    <h2>Name : {{ name }}</h2>
+    <h2>Age : {{age}}</h2>
 
     {% if age > 20 %}
-    <h2>You are in age , you can get Driving License. </h2>
+    <h2>You are in age , you can get Driving License.</h2>
     {% else %}
-    <h2> You are under age , So you can not get Driving License. </h2>
+    <h2>You are under age , So you can not get Driving License.</h2>
     {% endif %}
 
-
-    
-</body>
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Subject Name</th>
+        <th>Marks</th>
+        <th>Grade</th>
+      </tr>
+      {% for subject in marks %}
+      <tr>
+        <td>{{ subject.id }}</td>
+        <td>{{ subject.subject }}</td>
+        <td>{{ subject.marks }}</td>
+        <td>
+          {% if subject.marks >= 80 %} A+ {% elif subject.marks >= 70 %} A {%
+          elif subject.marks >= 60 %} A- {% elif subject.marks >= 50 %} B {%
+          elif subject.marks >= 45 %} C {% elif subject.marks >= 40 %} D {% else
+          %} F {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+  </body>
 </html>
 
-{% comment %} For variable access we use {{ }} {% endcomment %}
-{% comment %} For condition,loop we use {%  %}  {% endcomment %}
+{% comment %} For variable access we use {{ }} {% endcomment %} {% comment %}
+For condition,loop we use {% %} {% endcomment %}

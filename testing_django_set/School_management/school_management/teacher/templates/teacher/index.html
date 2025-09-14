@@ -1,13 +1,17 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="{% static 'teacher/css/index.css' %}" />
 </head>
 <body>
     <h1>
-        Welcome to the teacher profile from 'teacherapp\template\teacher\index.html' .
+        Welcome to the teacher profile.
     </h1>
+    <img src="{% static 'teacher/images/image.png' %}" alt="Image not found"/>
 </body>
 </html>
