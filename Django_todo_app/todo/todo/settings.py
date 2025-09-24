@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'task',
     'crispy_forms',
+    'crispy_bootstrap5',
+
 
 ]
 
@@ -58,10 +60,15 @@ ROOT_URLCONF = 'todo.urls'
 CRISPY_TEMPLATE_PACK = 'bootstrap5'
 CRISPY_ALLOWED_TEMPLATE_PACKS  = 'bootstrap5'
 
+#Login urls
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+LOGIN_URL = '/login/'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['templtes'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
