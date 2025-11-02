@@ -1,0 +1,95 @@
+{% extends 'library/admin/base_admin.html' %}
+
+{% block admin_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-tags me-2"></i> Category Management</h2>
+    <a href="{% url 'library:admin_add_category' %}" class="btn btn-admin">
+        <i class="fas fa-plus me-2"></i> Add New Category
+    </a>
+</div>
+
+<!-- Search Form -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-10">
+                <input type="text" class="form-control" name="search" 
+                       placeholder="Search categories..." 
+                       value="{{ search_query }}">
+            </div>
+            <div class="col-md-2">
+                <button type="submit" class="btn btn-admin w-100">
+                    <i class="fas fa-search me-2"></i> Search
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Categories Grid -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">All Categories ({{ categories.count }} total)</h5>
+    </div>
+    <div class="card-body">
+        {% if categories %}
+            <div class="row">
+                {% for category in categories %}
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title">
+                                    <i class="fas fa-tag me-2"></i>{{ category.name }}
+                                </h5>
+                                <p class="card-text flex-grow-1">
+                                    {% if category.description %}
+                                        {{ category.description|truncatechars:100 }}
+                                    {% else %}
+                                        <em class="text-muted">No description available.</em>
+                                    {% endif %}
+                                </p>
+                                
+                                <div class="mt-auto">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <small class="text-muted">
+                                            <i class="fas fa-book me-1"></i>
+                                            {{ category.books.count }} book{{ category.books.count|pluralize }}
+                                        </small>
+                                    </div>
+                                    
+                                    <div class="btn-group w-100" role="group">
+                                        <a href="{% url 'library:books_by_category' category.id %}" 
+                                           class="btn btn-sm btn-outline-primary" title="View Books">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
+                                        <a href="{% url 'library:admin_edit_category' category.id %}" 
+                                           class="btn btn-sm btn-outline-secondary" title="Edit">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                        <a href="{% url 'library:admin_delete_category' category.id %}" 
+                                           class="btn btn-sm btn-outline-danger" title="Delete">
+                                            <i class="fas fa-trash"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <div class="text-center py-5">
+                <i class="fas fa-tags fa-3x text-muted mb-3"></i>
+                <h5 class="text-muted">No categories found</h5>
+                {% if search_query %}
+                    <p class="text-muted">Try adjusting your search criteria.</p>
+                    <a href="{% url 'library:admin_categories' %}" class="btn btn-secondary">Clear Search</a>
+                {% else %}
+                    <p class="text-muted">Start by adding your first category.</p>
+                    <a href="{% url 'library:admin_add_category' %}" class="btn btn-admin">Add Category</a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,79 @@
+{% extends 'library/admin/base_admin.html' %}
+
+{% block admin_content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-trash me-2"></i> Delete Book</h2>
+    <a href="{% url 'library:admin_books' %}" class="btn btn-secondary">
+        <i class="fas fa-arrow-left me-2"></i> Back to Books
+    </a>
+</div>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card border-danger">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0"><i class="fas fa-exclamation-triangle me-2"></i> Confirm Book Deletion</h5>
+            </div>
+            <div class="card-body">
+                <div class="alert alert-warning">
+                    <i class="fas fa-warning me-2"></i>
+                    <strong>Warning!</strong> This action cannot be undone.
+                </div>
+                
+                <p>Are you sure you want to delete the following book?</p>
+                
+                <div class="row">
+                    <div class="col-md-3">
+                        {% if book.cover_image %}
+                            <img src="{{ book.cover_image.url }}" alt="{{ book.title }}" 
+                                 class="img-thumbnail" style="max-width: 150px; max-height: 200px;">
+                        {% else %}
+                            <div class="bg-light border rounded d-flex align-items-center justify-content-center" 
+                                 style="width: 150px; height: 200px;">
+                                <i class="fas fa-book fa-3x text-muted"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-9">
+                        <div class="bg-light p-3 rounded">
+                            <h5><strong>{{ book.title }}</strong></h5>
+                            <p class="mb-1"><strong>Author:</strong> {{ book.author }}</p>
+                            <p class="mb-1"><strong>Category:</strong> {{ book.category.name }}</p>
+                            <p class="mb-1"><strong>ISBN:</strong> {{ book.isbn|default:"-" }}</p>
+                            <p class="mb-1"><strong>Publication Date:</strong> {{ book.publication_date|default:"-" }}</p>
+                            <p class="mb-1"><strong>Reviews:</strong> {{ book.review_count }} review{{ book.review_count|pluralize }}</p>
+                            {% if book.average_rating > 0 %}
+                                <p class="mb-0"><strong>Average Rating:</strong> 
+                                    <span class="text-warning">
+                                        {% for i in "12345" %}
+                                            {% if forloop.counter <= book.average_rating %}
+                                                <i class="fas fa-star"></i>
+                                            {% else %}
+                                                <i class="far fa-star"></i>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </span>
+                                    ({{ book.average_rating }})
+                                </p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="text-muted small mt-3">
+                    <i class="fas fa-info-circle me-1"></i>
+                    This will also delete all reviews and ratings associated with this book.
+                </p>
+                
+                <form method="post" class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    {% csrf_token %}
+                    <a href="{% url 'library:admin_books' %}" class="btn btn-secondary me-md-2">Cancel</a>
+                    <button type="submit" class="btn btn-danger">
+                        <i class="fas fa-trash me-2"></i> Yes, Delete Book
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

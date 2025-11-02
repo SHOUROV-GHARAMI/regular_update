@@ -1,0 +1,128 @@
+/* .one {
+    color: black;
+    font-synthesis: style;
+    font-weight: bold;
+    text-overflow: indigo;
+    background-color: yellow;
+}
+.two {
+    color: blue;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightblue;
+    text-overflow: blue;
+}
+.divclass {
+    color: green;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightgreen;
+    text-overflow: green;
+}
+.spanclass {
+    color: rgb(11, 4, 4);
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: yellowgreen;
+}
+
+#idfirst {
+    color: brown;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightgray;
+    text-overflow: brown;
+}
+#idsecond {
+    color: purple;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: violet;
+    text-overflow: purple;
+} */
+
+
+
+/* 
+a[href="https://www.example.com"] {
+    color: orange;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightyellow;
+    text-overflow: orange;
+}
+
+a[href="https://www.test.com"] {
+    color: orange;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightyellow;
+    text-overflow: orange;
+}
+
+a[href="https://www.sample.com"] {
+    color: orange;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightyellow;
+    text-overflow: orange;
+}
+
+a[href="https://www.demo.com"] {
+    color: orange;
+    font-synthesis: style;
+    font-weight: bold;
+    background-color: lightyellow;
+    text-overflow: orange;
+} */
+
+/* a[href] {
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+a[target="_blank"] {
+    text-decoration: underline;
+}
+
+a[href^="https"] {
+    font-size: 25px;
+}
+
+a[href$="org"] {
+    color: green;
+} */
+
+button:hover {
+    background-color: green;
+    color: white;
+    font-weight: bold;
+}
+button:active {
+    background-color: red;
+    color: yellow;
+    font-weight: bold;
+}
+button:visited {
+    background-color: blue;
+    color: white;
+    font-weight: bold;
+}
+button:playing {
+    background-color: orange;
+    color: black;
+    font-weight: bold;
+}
+
+li:hover {
+    background-color: rgb(196, 16, 16);
+    color: black;
+    font-weight: bold;
+}
+
+li:not(:hover) {
+    background-color: rgb(243, 226, 40);
+    color: black;
+    font-weight: normal;
+}

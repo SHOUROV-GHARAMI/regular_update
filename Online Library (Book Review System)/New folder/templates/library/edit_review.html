@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Review - Online Library{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'library:home' %}">Home</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'library:book_detail' review.book.pk %}">{{ review.book.title }}</a></li>
+                <li class="breadcrumb-item active">Edit Review</li>
+            </ol>
+        </nav>
+        
+        <div class="card">
+            <div class="card-header">
+                <h3><i class="fas fa-edit"></i> Edit Review</h3>
+            </div>
+            <div class="card-body">
+                <!-- Book Info -->
+                <div class="row mb-4">
+                    <div class="col-md-3">
+                        {% if review.book.cover_image %}
+                            <img src="{{ review.book.cover_image.url }}" class="img-fluid rounded" alt="{{ review.book.title }}">
+                        {% else %}
+                            <div class="bg-light rounded d-flex align-items-center justify-content-center" style="height: 150px;">
+                                <i class="fas fa-book fa-3x text-muted"></i>
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-9">
+                        <h4>{{ review.book.title }}</h4>
+                        <p class="text-muted">by {{ review.book.author }}</p>
+                        <span class="badge bg-secondary">{{ review.book.category.name }}</span>
+                    </div>
+                </div>
+                
+                <hr>
+                
+                <!-- Review Form -->
+                <form method="post">
+                    {% csrf_token %}
+                    
+                    {% if form.errors %}
+                        <div class="alert alert-danger">
+                            <ul class="mb-0">
+                                {% for field, errors in form.errors.items %}
+                                    {% for error in errors %}
+                                        <li>{{ error }}</li>
+                                    {% endfor %}
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.rating.id_for_label }}" class="form-label">Rating</label>
+                        {{ form.rating }}
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="{{ form.comment.id_for_label }}" class="form-label">Your Review</label>
+                        {{ form.comment }}
+                    </div>
+                    
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'library:book_detail' review.book.pk %}" class="btn btn-secondary">
+                            <i class="fas fa-arrow-left"></i> Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-save"></i> Update Review
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
