@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CSS Methods Demo</title>
+  <!-- External CSS -->
+  <link rel="stylesheet" href="mystyle.css">
+  <!-- Internal CSS -->
+  <style>
+    /* Internal CSS: applies only in this document, declared in the head */
+    .internal-note{background:#fff3cd;border:1px solid #ffeeba;padding:8px;margin:8px 0}
+    /* internal selector example: pseudo-class */
+    .internal-note:hover{background:#fffbe6}
+    /* internal pseudo-element */
+    .internal-badge::after{content:" (internal)";color:#777}
+  </style>
+</head>
+<body>
+
+  <header class="pos-sticky">
+    <h1>CSS Methods Demo</h1>
+    <p class="big">A page showing Inline, Internal, and External CSS plus selectors and properties.</p>
+  </header>
+
+  <!-- External CSS: ID selector, uses mystyle.css -->
+  <section id="hero" class="hero-bg box">
+    <h2 class="badge">Hero section</h2>
+    <p>This hero uses an external stylesheet for background image, color, and spacing.</p>
+  </section>
+
+  <!-- Inline CSS example: style attribute directly on element -->
+  <div class="box">
+    <h3>Inline CSS</h3>
+    <p style="color:teal;font-weight:600;">This paragraph uses inline styles (style="...").</p>
+    <button class="demo-btn" style="border-radius:0;">Inline-styled button</button>
+  </div>
+
+  <!-- Internal CSS example: styles above in <style> -->
+  <div class="box">
+    <h3>Internal CSS</h3>
+    <p class="internal-note internal-badge">Hover this internal note to see a hover effect and the pseudo-element text.</p>
+  </div>
+
+  <!-- External CSS example: classes and pseudo-classes defined in mystyle.css -->
+  <div class="box card">
+    <h3>External CSS</h3>
+    <p>The rules for this card come from <code>mystyle.css</code>. Try hovering the button below.</p>
+    <button class="demo-btn">Hover me (external)</button>
+  </div>
+
+  <!-- Selectors: tag, class, id, attribute, child, descendant -->
+  <div class="box">
+    <h3>Selectors</h3>
+    <p>Tag selector: the &lt;p&gt; tag (applies to all paragraphs)</p>
+    <p class="underline">Class selector: <code>.underline</code></p>
+    <p id="unique">ID selector: <code>#unique</code></p>
+    <p><a href="https://example.com" target="_blank">Attribute selector: a[target="_blank"]</a></p>
+
+    <div class="parent" style="margin-top:10px;padding:6px;border:1px solid #ccc">
+      Parent element
+      <div class="child">Child element (child selector .parent > .child)</div>
+    </div>
+  </div>
+
+  <!-- Pseudo-classes, pseudo-elements, nth-child -->
+  <div class="box">
+    <h3>Pseudo-class & Pseudo-element</h3>
+    <ul class="demo-list">
+      <li>List item 1</li>
+      <li>List item 2</li>
+      <li>List item 3</li>
+      <li>List item 4</li>
+    </ul>
+    <p class="badge">This element has a pseudo-element (.badge::after)</p>
+  </div>
+
+  <!-- Box model demonstration -->
+  <div class="box">
+    <h3>Box Model</h3>
+    <div class="box-model">Width + padding + border + margin example</div>
+  </div>
+
+  <!-- Positioning examples -->
+  <div class="box pos-absolute-wrapper">
+    <h3>Positioning</h3>
+    <div class="pos-relative">Relative positioned element</div>
+    <div class="pos-absolute">Absolutely positioned inside wrapper</div>
+  </div>
+
+  <div class="box">
+    <h3>Fixed & Sticky</h3>
+    <p>Look for a fixed element in the bottom-right of the window (external stylesheet).</p>
+  </div>
+
+  <!-- Display / Visibility -->
+  <div class="box">
+    <h3>Display & Visibility</h3>
+    <p class="hidden">This paragraph is hidden via <code>display:none</code> (class="hidden").</p>
+    <p class="visible-block">This paragraph is visible and displayed as a block.</p>
+  </div>
+
+  <!-- Background image and fonts examples already shown in hero -->
+
+  <!-- Footer with fixed element example (external CSS .pos-fixed) -->
+  <div class="pos-fixed">Fixed box (external)</div>
+
+  <div class="clear"></div>
+
+</body>
+</html>

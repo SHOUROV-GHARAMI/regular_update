@@ -1,58 +1,95 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>CSS Methods Demo (index)</title>
     <link rel="stylesheet" href="mystyle.css">
-    
+    <style>
+        /* Small page-specific internal styles to keep header readable */
+        header h1{margin:0}
+    </style>
 </head>
 <body>
-    <!-- <p class="one">
-        This is a <div class="divclass">paragraph</div> with class "one".
-    </p>
-    <p class="two">
-        This is a <span class="spanclass">paragraph</span> with class "two".
-    </p>
-    <p class="one">
-        This is a <div class="divclass">paragraph</div> with class "three".
-    </p>
-    <p class="two">
-        This is a <span class="spanclass">paragraph</span> with class "four".
-    </p>
 
-    <div class="divclass">
-        This is a div with class "divclass" outside of paragraphs.
-        <p id="idfirst">This is a <span class="spanclass">paragraph</span> inside the div.</p>
-        <p id="idsecond">This is a <span class="spanclass">paragraph</span> with class "one".</p>
-    </div> -->
+    <header class="pos-sticky">
+        <h1>CSS Methods Demo (integrated into index.html)</h1>
+        <p class="big">This page demonstrates Inline, Internal, and External CSS plus selectors and properties.</p>
+    </header>
 
+    <section id="hero" class="hero-bg box">
+        <h2 class="badge">Hero section</h2>
+        <p>This hero uses the external stylesheet for background image, color, and spacing.</p>
+    </section>
 
-<!-- <div>
-    <h1>Attribute Selector</h1>
-    <a href="https://www.example.com" >Example Link 1</a><br>
-    <a href="https://www.test.com" >Example Link 2</a><br>
-    <a href="https://www.sample.com" >Example Link 3</a><br>
-    <a href="https://www.demo.com" target="_blank" >Example Link 4</a><br>
-    <a href="https://github.com">https://github.com</a><br>
-    <a href="https://www.wikipedia.org" >https://www.wikipedia.org</a><br>
+    <div class="box">
+        <h3>Inline CSS</h3>
+        <p style="color:teal;font-weight:600;">This paragraph uses inline styles (style="...").</p>
+        <button class="demo-btn" style="border-radius:0;">Inline-styled button</button>
+    </div>
 
-</div> -->
+    <div class="box">
+        <h3>Internal CSS</h3>
+        <p class="internal-note internal-badge">Hover this internal note to see a hover effect and the pseudo-element text.</p>
+    </div>
 
-<div> 
-    <button>click me</button>
-    <li>This is #1</li>
-    <li>This is #2</li>
-    <li>This is #3</li>
-    <li>This is #4</li>
-    <li>This is #5</li>
-    <li>This is #6</li>
-    <li>This is #7</li>
+    <div class="box card">
+        <h3>External CSS</h3>
+        <p>The rules for this card come from <code>mystyle.css</code>. Try hovering the button below.</p>
+        <button class="demo-btn">Hover me (external)</button>
+    </div>
 
+    <div class="box">
+        <h3>Selectors</h3>
+        <p>Tag selector: the &lt;p&gt; tag (applies to all paragraphs)</p>
+        <p class="underline">Class selector: <code>.underline</code></p>
+        <p id="unique">ID selector: <code>#unique</code></p>
+        <p><a href="https://example.com" target="_blank">Attribute selector: a[target="_blank"]</a></p>
 
-</div>
+        <div class="parent" style="margin-top:10px;padding:6px;border:1px solid #ccc">
+            Parent element
+            <div class="child">Child element (child selector .parent > .child)</div>
+        </div>
+    </div>
 
+    <div class="box">
+        <h3>Pseudo-class & Pseudo-element</h3>
+        <ul class="demo-list">
+            <li>List item 1</li>
+            <li>List item 2</li>
+            <li>List item 3</li>
+            <li>List item 4</li>
+        </ul>
+        <p class="badge">This element has a pseudo-element (.badge::after)</p>
+    </div>
 
+    <div class="box">
+        <h3>Box Model</h3>
+        <div class="box-model">Width + padding + border + margin example</div>
+    </div>
 
+    <div class="box pos-absolute-wrapper">
+        <h3>Positioning</h3>
+        <div class="pos-relative">Relative positioned element</div>
+        <div class="pos-absolute">Absolutely positioned inside wrapper</div>
+    </div>
+
+    <div class="box">
+        <h3>Fixed & Sticky</h3>
+        <p>Look for a fixed element in the bottom-right of the window (external stylesheet).</p>
+    </div>
+
+    <div class="box">
+        <h3>Display & Visibility</h3>
+        <p class="hidden">This paragraph is hidden via <code>display:none</code> (class="hidden").</p>
+        <p class="visible-block">This paragraph is visible and displayed as a block.</p>
+    </div>
+
+    <div class="pos-fixed">Fixed box (external)</div>
+    <div class="clear"></div>
+
+</body>
+</html>
 </body>
 </html>

@@ -12,117 +12,111 @@
     background-color: lightblue;
     text-overflow: blue;
 }
-.divclass {
-    color: green;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: lightgreen;
-    text-overflow: green;
-}
-.spanclass {
-    color: rgb(11, 4, 4);
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: yellowgreen;
+/* mystyle.css — external stylesheet used by css-methods-demo.html
+   Demonstrates many CSS methods from todo.md: external rules, selectors,
+   properties (colors, fonts, text), box-model, positioning, display, etc.
+*/
+
+:root{
+  --brand: #1e90ff;
+  --accent: hsl(340 80% 60%);
+  --muted: #f3f4f6;
+  --overlay: rgba(0 0 0 / 0.5);
 }
 
-#idfirst {
-    color: brown;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: lightgray;
-    text-overflow: brown;
-}
-#idsecond {
-    color: purple;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: violet;
-    text-overflow: purple;
-} */
+/* ------------------------------------------------------------------
+  Base / Tag selectors (used by many demo elements)
+  Targets: all paragraphs, html/body. See demo sections 'Selectors', 'External CSS'
+  ------------------------------------------------------------------ */
+/* Base / tag selector */
+html,body{font-family: 'Segoe UI', Roboto, Arial, sans-serif; margin:16px;}
+p{line-height:1.6;color:#222}
 
+/* Class selector
+  Targets: .box used throughout demo as a container for examples
+*/
+.box{padding:12px;border:2px solid #ddd;margin:10px 0;background:#fff}
 
+/* ID selector
+  Targets: #hero (the top hero section in the demo)
+*/
+#hero{background:var(--brand);color:#fff;padding:18px;border-radius:6px}
 
-/* 
-a[href="https://www.example.com"] {
-    color: orange;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: lightyellow;
-    text-overflow: orange;
+/* Attribute selector
+  Targets: links with target="_blank" used in the Selectors demo block
+*/
+a[target="_blank"]{color:var(--accent);text-decoration:underline}
+
+/* Descendant selector
+  Targets: paragraphs inside elements with class .card (demo: External CSS card)
+*/
+.card p{margin:8px 0}
+
+/* Child selector
+  Targets: .parent > .child in the Selectors demo (direct child only)
+*/
+.parent > .child{background: brown;color: #ffebcd;padding:10px}
+
+/* Pseudo-class (hover)
+  Targets: .demo-btn buttons in multiple demo blocks
+*/
+button.demo-btn{background:var(--brand);color:#fff;border:0;padding:8px 12px;border-radius:4px}
+button.demo-btn:hover{background:darkblue}
+
+/* Pseudo-element
+  Targets: .badge elements; appends a decorative star after the element text
+*/
+.badge::after{content:" ★";color:gold}
+
+/* nth-child structural pseudo-class
+  Targets: list items inside .demo-list to visualize odd/even rows
+*/
+ul.demo-list li:nth-child(odd){background:#f6f8fa}
+ul.demo-list li:nth-child(even){background:#eef2ff}
+
+/* Visibility / display utilities
+  Targets: .hidden and .visible-block used in the Display demo section
+*/
+.hidden{display:none}
+.visible-block{display:block}
+
+/* Box model example
+  Targets: .box-model in the Box Model demo section
+*/
+.box-model{width:200px;padding:12px;border:4px solid #444;margin:12px}
+
+/* Positioning examples
+  Targets: .pos-relative, .pos-absolute, .pos-fixed, .pos-sticky used in Positioning demo
+*/
+.pos-relative{position:relative;left:10px;top:6px;border:1px dashed #aaa;padding:6px}
+.pos-absolute-wrapper{position:relative;height:120px;background:#fafafa}
+.pos-absolute{position:absolute;right:8px;top:8px;background:var(--brand);color:#fff;padding:6px}
+.pos-fixed{position:fixed;bottom:12px;right:12px;background:#333;color:#fff;padding:8px;border-radius:6px}
+.pos-sticky{position:sticky;top:0;background:#fff;padding:8px;border-bottom:1px solid #ddd}
+
+/* Background image
+  Targets: .hero-bg used by the hero section (ID #hero in index.html)
+*/
+.hero-bg{background-image:url('https://images.unsplash.com/photo-1503264116251-35a269479413?w=800&q=80');background-size:cover;color:white;padding:24px;border-radius:6px}
+
+/* Font & text styling examples
+  Targets: utility classes used across the demo (.big, .italic, .uppercase, .underline)
+*/
+.big {font-size:24px;font-weight:700}
+.italic {font-style:italic}
+.uppercase{text-transform:uppercase;letter-spacing:1px}
+.underline{text-decoration:underline}
+
+/* Utilities
+  Targets: small helper classes used in layout examples
+*/
+.float-left{float:left;margin-right:12px}
+.clear{clear:both}
+
+/* Small responsive tweak */
+@media (max-width:600px){
+  .box-model{width:100%}
+  .pos-fixed{display:none}
 }
 
-a[href="https://www.test.com"] {
-    color: orange;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: lightyellow;
-    text-overflow: orange;
-}
-
-a[href="https://www.sample.com"] {
-    color: orange;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: lightyellow;
-    text-overflow: orange;
-}
-
-a[href="https://www.demo.com"] {
-    color: orange;
-    font-synthesis: style;
-    font-weight: bold;
-    background-color: lightyellow;
-    text-overflow: orange;
-} */
-
-/* a[href] {
-    color: red;
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-a[target="_blank"] {
-    text-decoration: underline;
-}
-
-a[href^="https"] {
-    font-size: 25px;
-}
-
-a[href$="org"] {
-    color: green;
-} */
-
-button:hover {
-    background-color: green;
-    color: white;
-    font-weight: bold;
-}
-button:active {
-    background-color: red;
-    color: yellow;
-    font-weight: bold;
-}
-button:visited {
-    background-color: blue;
-    color: white;
-    font-weight: bold;
-}
-button:playing {
-    background-color: orange;
-    color: black;
-    font-weight: bold;
-}
-
-li:hover {
-    background-color: rgb(196, 16, 16);
-    color: black;
-    font-weight: bold;
-}
-
-li:not(:hover) {
-    background-color: rgb(243, 226, 40);
-    color: black;
-    font-weight: normal;
-}
+/* End of external stylesheet */

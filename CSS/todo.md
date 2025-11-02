@@ -5,6 +5,7 @@
     - CSS Syntax
     - CSS Cascade and Specificity
     - Inheritance 
+    **CSS selector specificity** 
 3. Types of CSS
     - Inline CSS
     - Internal CSS
@@ -18,4 +19,20 @@
     - Colors
     - Fonts
     - Text Styling
+    - Background Images
+6. Box Model
+    - Content
+    - Padding
+    - Border
+    - Margin
+7. Positioning
+    - Static
+    - Relative
+    - Absolute
+    - Fixed
+    - Sticky
+8. Display and Visibility
+    - Display Proprty (block, inline, inline-block, none)
+    - Visibility Property (visible, Hidden, collapse)
+
 
